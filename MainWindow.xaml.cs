@@ -23,7 +23,9 @@ namespace praktika13
         public MainWindow()
         {
             InitializeComponent();
-            
+            string localPath = System.IO.Directory.GetCurrentDirectory(); // путь к папке с программой
+
+            OpenPages(pages.main);
         }
 
         public enum pages
@@ -33,7 +35,7 @@ namespace praktika13
 
         public void OpenPages(pages _pages)
         {
-            if (_pages == pages.main) frame.Navigate(new Layouts.Main(this));
+            if (_pages == pages.main) frame.Navigate(new Layouts.Main());
         }
     }
 }
