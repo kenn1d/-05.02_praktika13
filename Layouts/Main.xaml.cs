@@ -71,6 +71,179 @@ namespace praktika13.Layouts
             newDish.sizes.Add(newSize);
 
             dishs.Add(newDish);
+
+            // Создаём пиццу №2
+
+            Dish CheesePizza = new Dish();
+            CheesePizza.img = "img-2";
+            CheesePizza.name = "Сырная";
+            CheesePizza.description = "Пицца - вид пиццы, где доминирует сыр, часто сочетая несколько его видов";
+
+            Dish.Ingredient CheeseIngredient = new Dish.Ingredient();
+            CheeseIngredient.name = "сыр «Моцарелла» мягкий";
+            CheesePizza.ingredients.Add(CheeseIngredient);
+
+            CheeseIngredient = new Dish.Ingredient();
+            CheeseIngredient.name = "сыр «Пармезан»";
+            CheesePizza.ingredients.Add(CheeseIngredient);
+
+            CheeseIngredient = new Dish.Ingredient();
+            CheeseIngredient.name = "сыр «Горгонзола»";
+            CheesePizza.ingredients.Add(CheeseIngredient);
+
+            CheeseIngredient = new Dish.Ingredient();
+            CheeseIngredient.name = "сыр «Чеддер»";
+            CheesePizza.ingredients.Add(CheeseIngredient);
+
+            Dish.Sizes CheeseSize = new Dish.Sizes();
+            CheeseSize.size = 23;
+            CheeseSize.price = 480;
+            CheeseSize.wes = 630;
+            CheesePizza.sizes.Add(CheeseSize);
+
+            CheeseSize = new Dish.Sizes();
+            CheeseSize.size = 30;
+            CheeseSize.price = 860;
+            CheeseSize.wes = 760;
+            CheesePizza.sizes.Add(CheeseSize);
+
+            CheeseSize = new Dish.Sizes();
+            CheeseSize.size = 40;
+            CheeseSize.price = 1200;
+            CheeseSize.wes = 830;
+            CheesePizza.sizes.Add(CheeseSize);
+
+            dishs.Add(CheesePizza);
+
+            // Создаём пиццу №3
+
+            Dish AnanasPizza = new Dish();
+            AnanasPizza.img = "img-3";
+            AnanasPizza.name = "Гавайская (с ананасами)";
+            AnanasPizza.description = "Гавайская пицца - известная своим сочетанием сладких консервированных ананасов с курицей и сыром";
+
+            Dish.Ingredient AnanasIngredient = new Dish.Ingredient();
+            AnanasIngredient.name = "сыр «Моцарелла» мягкий";
+            AnanasPizza.ingredients.Add(AnanasIngredient);
+
+            AnanasIngredient = new Dish.Ingredient();
+            AnanasIngredient.name = "Кусочки ананаса";
+            AnanasPizza.ingredients.Add(AnanasIngredient);
+
+            AnanasIngredient = new Dish.Ingredient();
+            AnanasIngredient.name = "Курица";
+            AnanasPizza.ingredients.Add(AnanasIngredient);
+
+            Dish.Sizes AnanasSize = new Dish.Sizes();
+            AnanasSize.size = 23;
+            AnanasSize.price = 680;
+            AnanasSize.wes = 630;
+            AnanasPizza.sizes.Add(AnanasSize);
+
+            AnanasSize = new Dish.Sizes();
+            AnanasSize.size = 30;
+            AnanasSize.price = 850;
+            AnanasSize.wes = 760;
+            AnanasPizza.sizes.Add(AnanasSize);
+
+            AnanasSize = new Dish.Sizes();
+            AnanasSize.size = 40;
+            AnanasSize.price = 1300;
+            AnanasSize.wes = 830;
+            AnanasPizza.sizes.Add(AnanasSize);
+
+            dishs.Add(AnanasPizza);
+
+            // Создаём пиццу №4
+
+            Dish PepperPizza = new Dish();
+            PepperPizza.img = "img-4";
+            PepperPizza.name = "Пепперони";
+            PepperPizza.description = "Пепперони - вид американской пиццы, с салями, с добавлением паприки или перца чили";
+
+            Dish.Ingredient PepperIngredient = new Dish.Ingredient();
+            PepperIngredient.name = "Колбаски Салями";
+            PepperPizza.ingredients.Add(PepperIngredient);
+
+            PepperIngredient = new Dish.Ingredient();
+            PepperIngredient.name = "Перец чилли";
+            PepperPizza.ingredients.Add(PepperIngredient);
+
+            PepperIngredient = new Dish.Ingredient();
+            PepperIngredient.name = "Помидоры";
+            PepperPizza.ingredients.Add(PepperIngredient);
+
+            PepperIngredient = new Dish.Ingredient();
+            PepperIngredient.name = "Говядина";
+            PepperPizza.ingredients.Add(PepperIngredient);
+
+            Dish.Sizes PepperSize = new Dish.Sizes();
+            PepperSize.size = 23;
+            PepperSize.price = 690;
+            PepperSize.wes = 630;
+            PepperPizza.sizes.Add(PepperSize);
+
+            PepperSize = new Dish.Sizes();
+            PepperSize.size = 30;
+            PepperSize.price = 750;
+            PepperSize.wes = 760;
+            PepperPizza.sizes.Add(PepperSize);
+
+            PepperSize = new Dish.Sizes();
+            PepperSize.size = 40;
+            PepperSize.price = 1100;
+            PepperSize.wes = 830;
+            PepperPizza.sizes.Add(PepperSize);
+
+            dishs.Add(PepperPizza);
+
+            // Создаём пиццу №5
+
+            Dish DiabloPizza = new Dish();
+            DiabloPizza.img = "img-5";
+            DiabloPizza.name = "Дьябло";
+            DiabloPizza.description = "Дьябло - это острая пицца, название которой говорит о её жгучем вкусе";
+
+            Dish.Ingredient DiabloIngredient = new Dish.Ingredient();
+            DiabloIngredient.name = "Халапеньо";
+            DiabloPizza.ingredients.Add(DiabloIngredient);
+
+            DiabloIngredient = new Dish.Ingredient();
+            DiabloIngredient.name = "Моцарелла";
+            DiabloPizza.ingredients.Add(DiabloIngredient);
+
+            DiabloIngredient = new Dish.Ingredient();
+            DiabloIngredient.name = "Помидоры";
+            DiabloPizza.ingredients.Add(DiabloIngredient);
+
+            DiabloIngredient = new Dish.Ingredient();
+            DiabloIngredient.name = "Оливки";
+            DiabloPizza.ingredients.Add(DiabloIngredient);
+
+            DiabloIngredient = new Dish.Ingredient();
+            DiabloIngredient.name = "Перец чилли";
+            DiabloPizza.ingredients.Add(DiabloIngredient);
+
+            Dish.Sizes DiabloSize = new Dish.Sizes();
+            DiabloSize.size = 23;
+            DiabloSize.price = 680;
+            DiabloSize.wes = 630;
+            DiabloPizza.sizes.Add(DiabloSize);
+
+            DiabloSize = new Dish.Sizes();
+            DiabloSize.size = 30;
+            DiabloSize.price = 850;
+            DiabloSize.wes = 760;
+            DiabloPizza.sizes.Add(DiabloSize);
+
+            DiabloSize = new Dish.Sizes();
+            DiabloSize.size = 40;
+            DiabloSize.price = 1300;
+            DiabloSize.wes = 830;
+            DiabloPizza.sizes.Add(DiabloSize);
+
+            dishs.Add(DiabloPizza);
+
             CreatePizza();
         }
 
@@ -83,7 +256,7 @@ namespace praktika13.Layouts
                 Grid global = new Grid(); // создаём элемент Grid
                 global.Height = 100; // указываем высоту
                 global.Background = (Brush)bc.ConvertFrom("#ffececec"); // указываем цвет
-                if (i == 0) global.Margin = new Thickness(0, 10, 0, 0); // задаём отступы
+                global.Margin = new Thickness(0, 10, 0, 0); // задаём отступы
 
                 Image logo = new Image();
                 if (File.Exists(mainWindow.localPath + @"\image\dish\" + dishs[i].img + ".png")) // проверяем существует ли файл
