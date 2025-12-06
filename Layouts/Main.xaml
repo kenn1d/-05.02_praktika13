@@ -18,7 +18,7 @@
                 </Style>
             </Grid.Resources>
 
-            <Image x:Name="iconApp" Source="C:\Users\student-a502.PERMAVIAT\Documents\praktika13\Layouts\image\icon.png" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0"
+            <Image x:Name="iconApp" Source="C:\Users\student-a502.PERMAVIAT\Documents\praktika13\image\icon.png" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0"
                    VerticalAlignment="Top" Width="30"/>
             <Label Content="Меню" HorizontalAlignment="Left" Margin="40,10,0,0" VerticalAlignment="Top" Height="30" Foreground="White"
                    FontWeight="Bold" FontSize="16"/>
@@ -42,7 +42,7 @@
                 <StackPanel x:Name="parrent">
                     
                     <Grid Height="100" Background="#ffececec">
-                        <Image Source="C:\Users\student-a502.PERMAVIAT\Documents\praktika13\Layouts\image\icon.png" HorizontalAlignment="Left"
+                        <Image Source="C:\Users\student-a502.PERMAVIAT\Documents\praktika13\image\icon.png" HorizontalAlignment="Left"
                                Height="50" Margin="10,10,0,-10" VerticalAlignment="Top" Width="50"/>
                         <Label Content="Постный салат панцанелла со сладким перцем" HorizontalAlignment="Left" Margin="65,0,0,0"
                                VerticalAlignment="Top" FontWeight="Bold"/>

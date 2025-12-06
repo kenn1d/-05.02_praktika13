@@ -20,10 +20,12 @@ namespace praktika13
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string localPath;
+
         public MainWindow()
         {
             InitializeComponent();
-            string localPath = System.IO.Directory.GetCurrentDirectory(); // путь к папке с программой
+            localPath = System.IO.Directory.GetParent(System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).FullName).FullName; // путь к папке с программой
 
             OpenPages(pages.main);
         }
@@ -35,7 +37,7 @@ namespace praktika13
 
         public void OpenPages(pages _pages)
         {
-            if (_pages == pages.main) frame.Navigate(new Layouts.Main());
+            if (_pages == pages.main) frame.Navigate(new Layouts.Main(this));
         }
     }
 }
