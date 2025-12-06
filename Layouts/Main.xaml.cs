@@ -13,27 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace praktika13
+namespace praktika13.Layouts
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Main.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Main : Page
     {
-        public MainWindow()
+        public Main()
         {
             InitializeComponent();
-            
-        }
-
-        public enum pages
-        {
-            main
-        }
-
-        public void OpenPages(pages _pages)
-        {
-            if (_pages == pages.main) frame.Navigate(new Layouts.Main(this));
         }
     }
 }
