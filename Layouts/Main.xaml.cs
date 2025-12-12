@@ -463,7 +463,6 @@ namespace praktika13.Layouts
                 order.HorizontalAlignment = System.Windows.HorizontalAlignment.Right;
                 order.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
                 order.Margin = new System.Windows.Thickness(0, 0, 128, 13);
-                order.Width = 19;
                 order.Tag = i;
                 checkBoxes[i] = order;
                 order.Click += delegate
