@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace praktika13.Layouts
 {
@@ -28,6 +24,7 @@ namespace praktika13.Layouts
             // системные
             public int countOrder;
             public bool orders;
+            public int totalPrice;
         }
 
         public class Ingredient

@@ -24,6 +24,7 @@
                    FontWeight="Bold" FontSize="16"/>
             <Button Content="Заказать (0)" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" Height="25"/>
             <Button Content="Микс Х" Margin="0,10,114.6,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" Height="25"/>
+            <Label x:Name="allPrice" Content="Сумма: 0 ₽" HorizontalAlignment="Left" Margin="472,10,0,0" VerticalAlignment="Top" Height="25" Width="100"/>
         </Grid>
         <Grid Margin="0,50,0.4,-0.4">
             <Grid.Resources>
@@ -40,7 +41,7 @@
             </Grid.Resources>
             <ScrollViewer Margin="10,10,10,10">
                 <StackPanel x:Name="parrent">
-                    
+
                     <Grid Height="100" Background="#ffececec">
                         <Image Source="C:\Users\student-a502.PERMAVIAT\Documents\praktika13\image\icon.png" HorizontalAlignment="Left"
                                Height="50" Margin="10,10,0,-10" VerticalAlignment="Top" Width="50"/>
@@ -62,7 +63,7 @@
                                Margin="65,40,0,0" VerticalAlignment="Top"/>
                         <CheckBox Content="Выбрать" HorizontalAlignment="Right" Margin="0,0,128,13" VerticalAlignment="Bottom"/>
                     </Grid>
-                    
+
                 </StackPanel>
             </ScrollViewer>
         </Grid>

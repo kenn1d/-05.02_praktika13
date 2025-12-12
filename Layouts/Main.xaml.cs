@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace praktika13.Layouts
 {
@@ -24,7 +17,7 @@ namespace praktika13.Layouts
         public MainWindow mainWindow;
 
         public List<Dish> dishs = new List<Dish>();
-
+        private Dictionary<int, CheckBox> checkBoxes = new Dictionary<int, CheckBox>();
         public Main(MainWindow _mainWindow)
         {
             InitializeComponent();
@@ -351,6 +344,7 @@ namespace praktika13.Layouts
                     dishs[int.Parse(button1.Tag.ToString())].activeSize = 0; // запоминаем активный размер
                     count.Text = dishs[int.Parse(button1.Tag.ToString())].sizes[0].countOrder.ToString(); // изменяем стоимость блюда
                     order.IsChecked = dishs[int.Parse(button1.Tag.ToString())].sizes[0].orders; // снимаем галочку выбора блюда
+                    UpdateTotalPrice();
                 };
                 global.Children.Add(button1);
 
@@ -375,6 +369,7 @@ namespace praktika13.Layouts
                     dishs[int.Parse(button1.Tag.ToString())].activeSize = 1; // запоминаем активный размер
                     count.Text = dishs[int.Parse(button1.Tag.ToString())].sizes[1].countOrder.ToString(); // изменяем стоимость блюда
                     order.IsChecked = dishs[int.Parse(button1.Tag.ToString())].sizes[1].orders; // снимаем галочку выбора блюда
+                    UpdateTotalPrice();
                 };
                 global.Children.Add(button2);
 
@@ -399,6 +394,7 @@ namespace praktika13.Layouts
                     dishs[int.Parse(button1.Tag.ToString())].activeSize = 2; // запоминаем активный размер
                     count.Text = dishs[int.Parse(button1.Tag.ToString())].sizes[2].countOrder.ToString(); // изменяем стоимость блюда
                     order.IsChecked = dishs[int.Parse(button1.Tag.ToString())].sizes[2].orders; // снимаем галочку выбора блюда
+                    UpdateTotalPrice();
                 };
                 global.Children.Add(button3);
 
@@ -414,6 +410,7 @@ namespace praktika13.Layouts
                 minus.Click += delegate
                 {
                     if (count.Text != "") // если текст не равен пустоте
+                    {
                         if (int.Parse(count.Text) > 0) // если кол-во заказанных пицц больше 0
                         {
                             count.Text = (int.Parse(count.Text) - 1).ToString(); // убавляем
@@ -421,6 +418,7 @@ namespace praktika13.Layouts
                             int id = int.Parse(minus.Tag.ToString()); // преобразуем ID
                             dishs[id].sizes[dishs[id].activeSize].countOrder = int.Parse(count.Text); // уменьшаем кол-во заказанных блюд
                         }
+                    }
                 };
                 global.Children.Add(minus);
 
@@ -432,6 +430,7 @@ namespace praktika13.Layouts
                 count.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
                 count.Margin = new System.Windows.Thickness(0, 0, 33.6f, 10);
                 count.TextWrapping = TextWrapping.Wrap; // вырвниваем текст
+                count.TextChanged += Count_TextChanged;
                 count.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center;
                 count.Width = 65;
                 count.Height = 19;
@@ -448,6 +447,7 @@ namespace praktika13.Layouts
                 plus.Click += delegate
                 {
                     if (count.Text != "") // если текст не равен пустоте
+                    {
                         if (int.Parse(count.Text) < 15) // если кол-во заказанных пицц меньше 15
                         {
                             count.Text = (int.Parse(count.Text) + 1).ToString(); // прибавляем
@@ -455,6 +455,7 @@ namespace praktika13.Layouts
                             int id = int.Parse(plus.Tag.ToString()); // преобразуем ID
                             dishs[id].sizes[dishs[id].activeSize].countOrder = int.Parse(count.Text); // увеличиваем кол-во заказанных блюд
                         }
+                    }
                 };
                 global.Children.Add(plus);
 
@@ -464,15 +465,81 @@ namespace praktika13.Layouts
                 order.Margin = new System.Windows.Thickness(0, 0, 128, 13);
                 order.Width = 19;
                 order.Tag = i;
+                checkBoxes[i] = order;
                 order.Click += delegate
                 {
                     int id = int.Parse(order.Tag.ToString()); // преобразуем ID
                     dishs[id].sizes[dishs[id].activeSize].orders = (bool)order.IsChecked; // увеличиваем кол-во заказанных блюд
+                    UpdateTotalPrice();
                 };
                 global.Children.Add(order);
 
                 parrent.Children.Add(global);
             }
+        }
+
+        private void Count_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox texBox = (TextBox)sender;
+            int dishId = (int)texBox.Tag;
+            
+            if (!int.TryParse(texBox.Text, out int x))
+            {
+                texBox.Text = dishs[dishId].sizes[dishs[dishId].activeSize].countOrder.ToString();
+                return;
+            }
+
+            int totalCount = int.Parse(texBox.Text.ToString());
+            int dishPrice = dishs[dishId].sizes[dishs[dishId].activeSize].price;
+            int exitCount = dishs[dishId].sizes[dishs[dishId].activeSize].countOrder;
+
+            if (totalCount > 15)
+            {
+                MessageBox.Show("Введите количесво не более 15!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                texBox.Text = dishs[dishId].sizes[dishs[dishId].activeSize].countOrder.ToString();
+                return;
+            }
+            else if (totalCount < 0)
+            {
+                MessageBox.Show("Введите количесво не менее 0!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                texBox.Text = dishs[dishId].sizes[dishs[dishId].activeSize].countOrder.ToString();
+                return;
+            }
+
+            dishs[dishId].sizes[dishs[dishId].activeSize].totalPrice = dishPrice * totalCount;
+            if (totalCount > 0) {
+                dishs[dishId].sizes[dishs[dishId].activeSize].orders = true;
+                if (checkBoxes.ContainsKey(dishId))
+                {
+                    checkBoxes[dishId].IsChecked = true;
+                }
+            }
+            else {
+                dishs[dishId].sizes[dishs[dishId].activeSize].orders = false;
+                if (checkBoxes.ContainsKey(dishId))
+                {
+                    checkBoxes[dishId].IsChecked = false;
+                }
+            }
+
+            dishs[dishId].sizes[dishs[dishId].activeSize].countOrder = totalCount;
+            UpdateTotalPrice();
+        }
+
+        private void UpdateTotalPrice()
+        {
+            int totalSum = 0;
+            foreach (var dish in dishs)
+            {
+                foreach (var size in dish.sizes)
+                {
+                    if (size.orders)
+                    {
+                        totalSum += size.price * size.countOrder;
+                    }
+                }
+            }
+            allPrice.Content = "Сумма: " + totalSum.ToString() + " ₽";
         }
     }
 }
