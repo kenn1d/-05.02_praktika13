@@ -528,17 +528,20 @@ namespace praktika13.Layouts
         private void UpdateTotalPrice()
         {
             int totalSum = 0;
+            int totalBuyCount = 0;
             foreach (var dish in dishs)
             {
                 foreach (var size in dish.sizes)
                 {
                     if (size.orders)
                     {
+                        totalBuyCount++;
                         totalSum += size.price * size.countOrder;
                     }
                 }
             }
             allPrice.Content = "Сумма: " + totalSum.ToString() + " ₽";
+            buyCount.Content = "Заказать (" + totalBuyCount.ToString() + ')';
         }
     }
 }

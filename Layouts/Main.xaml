@@ -22,7 +22,7 @@
                    VerticalAlignment="Top" Width="30"/>
             <Label Content="Меню" HorizontalAlignment="Left" Margin="40,10,0,0" VerticalAlignment="Top" Height="30" Foreground="White"
                    FontWeight="Bold" FontSize="16"/>
-            <Button Content="Заказать (0)" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" Height="25"/>
+            <Button x:Name="buyCount" Content="Заказать (0)" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" Height="25"/>
             <Button Content="Микс Х" Margin="0,10,114.6,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" Height="25"/>
             <Label x:Name="allPrice" Content="Сумма: 0 ₽" HorizontalAlignment="Left" Margin="472,10,0,0" VerticalAlignment="Top" Height="25" Width="100" Foreground="White"/>
         </Grid>
